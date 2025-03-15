@@ -20,7 +20,7 @@ A lightweight, fast, and efficient web application for scanning and managing bar
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/Ajking11/barcode-scanner.git
+   git clone https://github.com/Ajking11/BarcodeScanner.git
    cd barcode-scanner
    ```
 
