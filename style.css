@@ -1,3 +1,248 @@
-ul li {
-    list-style-type: none;
+/**
+ * Enhanced Barcode Scanner CSS
+ * Provides improved styling, animations, and responsive design
+ */
+
+/* Base styles */
+body {
+    background-color: #f8f9fa;
+    padding-top: 20px;
+}
+
+/* Barcode list styling */
+.barcode-list {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 0;
+}
+
+.barcode-list-container {
+    position: relative;
+    min-height: 100px;
+}
+
+/* Barcode items styling */
+.barcode-item, .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    border-radius: 4px !important;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    border-left: 4px solid #007bff;
+}
+
+/* Empty list message */
+#emptyMessage {
+    border-left: none;
+    background-color: transparent;
+    border: 1px dashed #dee2e6;
+}
+
+/* Delete button */
+.delete-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: #e9ecef;
+    border: none;
+    border-radius: 50%;
+    color: #6c757d;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.7;
+}
+
+.delete-btn:hover {
+    background-color: #dc3545;
+    color: #fff;
+    opacity: 1;
+}
+
+/* Input field focus style */
+#barCodeScannerInput:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Scan status indicator */
+.scan-status {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    color: #007bff;
+    font-size: 14px;
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+.fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+/* Success and error highlights */
+.highlight-success {
+    background-color: rgba(40, 167, 69, 0.1);
+    animation: pulseGreen 1s ease-in-out;
+}
+
+.highlight-error {
+    background-color: rgba(220, 53, 69, 0.1);
+    animation: pulseRed 1s ease-in-out;
+}
+
+@keyframes pulseGreen {
+    0% { background-color: rgba(40, 167, 69, 0.1); }
+    50% { background-color: rgba(40, 167, 69, 0.3); }
+    100% { background-color: rgba(40, 167, 69, 0.1); }
+}
+
+@keyframes pulseRed {
+    0% { background-color: rgba(220, 53, 69, 0.1); }
+    50% { background-color: rgba(220, 53, 69, 0.3); }
+    100% { background-color: rgba(220, 53, 69, 0.1); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .barcode-list {
+        max-height: 300px;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    
+    .card-header .btn-group {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .card-header .btn-group .btn {
+        flex: 1;
+        margin-left: 5px !important;
+    }
+    
+    .card-header .btn-group .btn:first-child {
+        margin-left: 0 !important;
+    }
+}
+
+/* Dark mode support (if activated via class on body) */
+body.dark-mode {
+    background-color: #343a40;
+    color: #f8f9fa;
+}
+
+body.dark-mode .card {
+    background-color: #454d55;
+    border-color: #495057;
+}
+
+body.dark-mode .card-header,
+body.dark-mode .card-footer {
+    background-color: #3d444b;
+    border-color: #495057;
+}
+
+body.dark-mode .list-group-item {
+    background-color: #454d55;
+    border-color: #495057;
+    color: #f8f9fa;
+}
+
+body.dark-mode #emptyMessage {
+    border-color: #6c757d;
+    color: #adb5bd;
+}
+
+body.dark-mode .form-control {
+    background-color: #495057;
+    border-color: #6c757d;
+    color: #f8f9fa;
+}
+
+body.dark-mode .input-group-text {
+    background-color: #3d444b;
+    border-color: #6c757d;
+    color: #f8f9fa;
+}
+
+/* Print styles */
+@media print {
+    .container {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .card {
+        border: none;
+        box-shadow: none;
+    }
+    
+    .card-header,
+    .card-footer,
+    #exportButton,
+    #clearButton,
+    .delete-btn,
+    form,
+    footer {
+        display: none;
+    }
+    
+    .barcode-list {
+        max-height: none;
+        overflow: visible;
+    }
+    
+    .barcode-item {
+        page-break-inside: avoid;
+        border-left: none;
+        border-bottom: 1px solid #dee2e6;
+    }
+}
+
+/* Accessibility improvements */
+.btn:focus,
+.form-control:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* Focus visible utility for keyboard navigation */
+.focus-visible {
+    outline: 2px solid #007bff !important;
+    outline-offset: 2px !important;
 }
