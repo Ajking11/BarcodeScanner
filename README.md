@@ -2,8 +2,6 @@
 
 A lightweight, fast, and efficient web application for scanning and managing barcodes.
 
-![Barcode Scanner Pro Screenshot](screenshots/scanner-screen.jpg)
-
 ## Features
 
 - Real-time barcode scanning through keyboard input
