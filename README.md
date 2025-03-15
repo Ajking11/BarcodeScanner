@@ -21,7 +21,7 @@ A lightweight, fast, and efficient web application for scanning and managing bar
 1. Clone this repository:
    ```bash
    git clone https://github.com/Ajking11/BarcodeScanner.git
-   cd barcode-scanner
+   cd BarcodeScanner
    ```
 
 2. Open `index.html` in a web browser or serve the files using a local web server:
